@@ -17,3 +17,19 @@ Person(String name) {
 System.out.println("inside this Person string object");
 System.out.println(name);
 }
+
+
+this keyword:
+==========
+
+--it will represent the current class object.
+
+--there are 3 uses of 'this' keyword:
+
+1. to represent the current class object.
+
+2.to defrentiate the instance variable and the local variable
+
+3. to call a constructor of a class from the another constructor of the same class.
+
+***Note: 'this' keyword we can not use inside static area.
