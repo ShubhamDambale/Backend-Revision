@@ -1,0 +1,19 @@
+How we can call all constructors in out class 
+
+class Person {
+
+Person() {
+this(10);
+System.out.println("inside this Person object");
+}
+
+Person(int rs) {
+this("shubham");
+System.out.println("inside this Person Int object");
+System.out.println(rs);
+}
+
+Person(String name) {
+System.out.println("inside this Person string object");
+System.out.println(name);
+}
