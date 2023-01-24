@@ -1,0 +1,100 @@
+Java Bean class:
+============
+--it is a reusable, universal component which should have following properties:
+
+1.this class should be public
+
+2. variables/fields should be private
+
+3.for each variable/field there should be corresponding public getter and 
+setter methods.
+
+4.this class must have zero argument constructor/default constructor
+
+5.this class may have parameterized constructor. (optional)
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Student.java:  as a Bean class
+----------------
+
+package com.masai;
+
+public class Student {
+	
+	private int roll;
+	private String name;
+	private int marks;
+	
+
+	public Student() {
+		
+	}
+
+
+	public Student(int roll, String name, int marks) {
+		super();
+		this.roll = roll;
+		this.name = name;
+		this.marks = marks;
+	}
+	
+	
+	
+	public int getRoll() {
+		return roll;
+	}
+	public void setRoll(int roll) {
+		this.roll = roll;
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getMarks() {
+		return marks;
+	}
+	
+	public void setMarks(int marks) {
+		this.marks = marks;
+	}
+
+}
+
+Demo.java:
+---------------
+
+package com.masai;
+
+public class Demo {
+
+
+	public static void main(String[] args) {
+
+		
+		Student s1= new Student(10, "Ram", 780);
+		
+		Student s2= new Student();
+		s2.setRoll(20);
+		s2.setName("Ramesh");
+		s2.setMarks(780);
+		
+		System.out.println("Roll is :"+s1.getRoll());
+		System.out.println("Name is :"+s1.getName());
+		System.out.println("Marks is :"+s1.getMarks());
+		
+		System.out.println("=============================");
+		
+		System.out.println("Roll is :"+s2.getRoll());
+		System.out.println("Name is :"+s2.getName());
+		System.out.println("Marks is :"+s2.getMarks());
+		
+		
+	}
+
+}
