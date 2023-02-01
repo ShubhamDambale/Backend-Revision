@@ -1,0 +1,391 @@
+Exception handling:
+==================
+
+
+---Gracefull/normal termination of our application:- if the last line of the 
+main method executed successfully then we can say that normal termination happens.
+
+--if last statement of the main method is executed and our application gets terminated then we can say that abnormal termination occurs.
+
+
+--The main objective of exception handling is gracefull termination of our application.
+
+**Exception always occurs at runtime, it never occurs at compile time.
+
+
+
+Exception : In java exceptions are the objects of some of the classes(predefined classes)  created by JVM to represent the corresponding logical error.
+
+there are 2 types of errors in java:
+
+1.syntax error: improper environment or syntactical error, it result in compile time error.
+
+2.logical error: for some type of logical mistakes, jvm would be unable to execute the application this result in logical error.
+
+ 
+--for each and every logical error, there are some predefined classes in java, whose object will be created by the jvm whenever it encounters that corresponding logical error.
+
+
+java.lang.ArithmaticException
+java.lang.NullPointerException
+java.lang.ClassCastException
+java.lang.ArrayOutOfBoundException
+
+
+
+--whenver, jvm encounters a logical error, it creates an obejct of the 
+corresponding predefined exception class automatically. and put(throw)
+that object in our application at the same line, if we don't handle that 
+exception class object explicitly then that obj will reaches back to the
+jvm , jvm will receive that obj and terminate our application abnormally.
+
+--in order to avoid the abnormal termination, we need to avoid that exception class obj should not reaches back to the jvm and by doing so we can prevent the abnormal termination.
+
+--we handle that exception class obj by just assigning that obj to the corresponding class variable.
+
+
+--injava we have 2 keywords 1. try and 2.catch using which we can handle the exception class obj.
+
+
+--try block will recognize the exception class obj created by the jvm and gets hold on that obj, and then transfer that obj to the catch block.
+
+--in catch block we should be able to assign that obj to the appropriate class
+ref variable so that it will reaches back to the jvm and therefore our application
+will not terminate abnormally.
+
+
+example:
+
+Demo.java:
+--------------
+
+package com.masai;
+
+public class Demo{
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main of Demo");
+		
+		
+	
+		try {
+			int i=10;
+			
+			int j=0;
+			
+			
+			int result = i/j; 
+			
+			System.out.println(result);
+		
+		
+		}catch(ArithmeticException ae) {
+			
+			System.out.println("inside catch block");
+			//System.out.println(ae);
+			
+			//System.out.println(ae.getMessage());
+			ae.printStackTrace();
+			
+			//alternate logic
+			
+			
+		}
+		
+		
+		
+		System.out.println("end of main...");
+		
+	}
+	
+}
+
+
+
+some of the important points of the exception handling:
+============================================
+
+1. the main obj of the EH is normal/gracefull termination of our application.
+
+2.we can know in which part of the program the logical error occured.
+
+3.we are not allowing the jvm to terminate the entire application, only
+the try block in which exception obj is generated will be terminated.
+
+4.if no exception class obj is created inside the try block, control will never 
+enters into the catch block.
+
+5.once control enters into the catch block , it executes the statments inside the 
+catch block and moves furthur. it will not come back to try block once 
+again due to which that catch block is executing.
+
+6. one try block can have multiple catch blocks also.
+
+
+example1:
+
+Demo.java:
+--------------
+
+package com.masai;
+
+public class Demo{
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main of Demo");
+		
+		
+	
+		try {
+			
+			System.out.println("inside try..");
+			
+			int i=10;
+			
+			int j=0;
+			
+			
+			int result = i/j; 
+			
+			System.out.println(result);
+			//1000
+			
+			System.out.println("end of try");
+		
+		
+		}catch(ArithmeticException ae) {
+			
+			System.out.println("inside catch block");
+			//System.out.println(ae);
+			
+			//System.out.println(ae.getMessage());
+			ae.printStackTrace();
+			
+			//alternate logic
+			
+			
+		}
+				
+		System.out.println("end of main...");
+		
+	}
+	
+}
+
+
+
+try with mutiple catch:
+------------------------------
+
+package com.masai;
+
+public class Demo{
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main of Demo");
+		
+		try {
+		String s1= "100";
+		String s2= "50";
+		
+		A a1=null;
+		
+		int num1= Integer.parseInt(s1);
+		int num2= Integer.parseInt(s2);
+		
+		int z = num1/num2;
+		
+		if(z > 5)
+			a1=new A();
+		
+		
+		a1.funA();
+		
+		
+		}catch (ArithmeticException ae) {
+			System.out.println("inside AE");
+		}
+		catch (NullPointerException npe) {
+			System.out.println("inside NPE");
+		}
+		catch (NumberFormatException nfe) {
+			System.out.println("inside NFE");
+		}
+				
+		
+		System.out.println("end of main...");
+		
+	}
+	
+}
+
+
+ 
+Adv of above approach:
+====================
+
+
+--we have more granullar way to handle each type of exception, we can write alternate logic for each type of exception.
+
+
+
+Disadv of above approach:
+---------------------------------
+
+1. developer should have through knowledge about which statement may throw
+which type of exception , which may not be possible always.
+
+2.writing too many catch block is also feasiable.
+
+
+			Object
+			    |
+		               Throwable
+                                                            |
+           -------------------------------------------------------------------
+           |					            |
+     Exception 				       Error
+             |
+     RuntimeException
+
+
+--Exception class is the super class/base class of all other  exception  classes.
+
+--above all the classes belongs to java.lang package.
+
+--as we know that super class ref can point to the child class obj, so we can take only one catch block that can handle any type of exception class obj.
+
+
+ex:
+
+Demo.java:-
+--------------
+
+package com.masai;
+
+public class Demo{
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main of Demo");
+		
+		try {
+		String s1= "100";
+		String s2= "50";
+		
+		A a1=null;
+		
+		int num1= Integer.parseInt(s1);
+		int num2= Integer.parseInt(s2);
+		
+		int z = num1/num2;
+		
+		if(z > 5)
+			a1=new A();
+		
+		
+		a1.funA();
+		
+		
+		}
+		catch (Exception e) {
+			System.out.println("inside exception");
+		}
+		
+		
+			
+		System.out.println("end of main...");
+		
+	}
+	
+}
+
+
+
+Rule for try with multiple catch block:
+------------------------------------------------
+
+--siblings can be in any order, but parent must be at last.
+
+
+example:
+----------
+
+package com.masai;
+
+public class Demo{
+	
+	public static void main(String[] args) {
+		
+		System.out.println("inside main of Demo");
+		
+		try {
+		String s1= "100";
+		String s2= "50";
+		
+		A a1=null;
+		
+		int num1= Integer.parseInt(s1);
+		int num2= Integer.parseInt(s2);
+		
+		int z = num1/num2;
+		
+		if(z > 5)
+			a1=new A();
+		
+		
+		a1.funA();
+		
+		
+		}
+		
+		catch (ArithmeticException ae) {
+			System.out.println("inside AE");
+		}
+		catch (NullPointerException npe) {
+			System.out.println("inside NPE");
+		}
+		catch (Exception e) {
+			
+			System.out.println("inside other type exception");
+		}
+	
+		
+		System.out.println("end of main...");
+		
+	}
+	
+}
+
+
+logical errors are also of two types:
+-----------------------------------------------
+
+1. simple logical error :  these logical errors are permitted to handle, all the classes
+which represent the simple logical error comes under the Exception category, ie. 
+they are the child of the Exception class.
+
+2. serious logical error: not permited to handle, all the classes which represents 
+serious logical error comes undee the Error class category, i.e they are the child of 
+Error class.
+
+
+
+Note: catch block is desiged in such a way that it will take only object of 
+Throwable class and its child class. it can not take Object class.
+
+--in catch block technically we can take the Throwable but it is bad practice, becoz 
+it will handle Error class objs also , (which we are not permited to handle)
+
+
+
+--In java we have all together 5 keywords in the concept of exception handling:
+
+1.try
+2.catch
+3.throw
+4.throws
+5.finally
