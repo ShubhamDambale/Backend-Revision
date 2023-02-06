@@ -1,0 +1,86 @@
+
+Functional Programming:
+=====================
+
+--this concept is introduced in java 1.8 onwards.
+
+--in this type of paradigm, a function is trated as a value. (we can assign the 
+entire funtion in a variable, or we can pass a function to another function parameter
+or we can return a function from another function as well.)
+
+
+int i =10;
+
+
+--the main adv of the FP is less coding, polymorphic and easy to understand.
+
+
+--to achive the functional programming in java we need a functional interface.
+
+functional interface in java:
+---------------------------------
+
+--an interface which has only one abstract method is called a FI.
+
+--A FI may have n number of static and default methods.
+
+--A FI may contains some data members (variables) also.
+
+--A FI can have Object class related abstract methods also.
+
+
+example:
+Intr.java:
+-----------
+
+@FunctionalInterface
+interface Intr{
+
+void fun1();
+
+}
+
+@FunctionalInterface annotation make sure we have a valid FI.
+
+
+
+example2:
+--------------
+
+Intr.java:
+-----------
+
+package com.masai;
+
+@FunctionalInterface
+public interface Intr {
+	
+	int x=10;
+	public abstract void fun1();
+	
+	public abstract String toString();
+	
+	static void fun2() {
+		
+	}
+	
+	default void fun3() {
+		
+	}
+	
+
+}
+
+some of the Predefined functional interface in java:
+-------------------------------------------------------------
+
+java.lang.Comparable : public int compareTo(Object obj);
+
+java.util.Comparator : public int compare(Object obj1, Object obj2);
+
+java.lang.Iterable : public Iterator iterator();
+
+java.lang.Runnable : public void run();
+
+
+***Note: with the help of FI we achive FP in java using Lambda expression.
