@@ -1,0 +1,18 @@
+JDBC:
+======
+Java Database connectivity.
+
+--java mostly used in industry to develop Business application.
+
+--common and general things required in a business application.
+
+1. maintaining the business data permanently in a secure and easily retrival manner.
+
+2. processing the data according to the business rule.
+
+3. presenting the data to the user in user understandable format.
+
+
+--we store the business data for a typicall business application inside the RDBMS s/w.
+
+nosql (mono db   ---> json data )
