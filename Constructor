@@ -1,0 +1,35 @@
+why we create class ?
+class is blueprit of object.
+class is used for create a  datatype for store data
+
+We use constructors to initialize the object with the default or initial state.
+
+in Java, the constructor is similar to the method.
+The property of the constructor is that it must have the same name as the class name. It has no return type. We do not require to call the constructor manually. 
+It automatically invokes implicitly during the instantiation.
+
+In other words, a constructor is a method that is called at runtime during the object creation by using the new operator. 
+The JVM calls it automatically when we create an object. 
+When we do not define a constructor in the class, the default constructor is always invisibly present in the class. There are the following reasons to use constructors:
+
+
+
+===============================================================================================================================================================================================================================================================================================================================================
+
+In Java, a constructor is a special method that is used to initialize objects of a class. 
+It is called when an instance of the class is created and it has the same name as the class. 
+Constructors can be used to set default values for instance variables, allocate memory for objects, and perform other initialization tasks.
+
+Here are some reasons why constructors are used in Java:
+
+Initializing object properties: Constructors are used to initialize the properties or variables of an object with default or specified values.
+
+Creating objects: Constructors are used to create objects of a class. Without a constructor, it would not be possible to create an instance of a class.
+
+Ensuring the validity of an object: Constructors can be used to ensure that an object is valid by setting appropriate values for its properties. This can help prevent errors from occurring later in the program.
+
+Providing default values: Constructors can be used to provide default values for object properties if none are specified by the user.
+
+Overloading: Java allows overloading of constructors. Multiple constructors can be defined with different parameters, making it possible to create objects with different initial values.
+
+Overall, constructors play an important role in Java by providing a way to create and initialize objects of a class.
