@@ -1,0 +1,9 @@
+class Vector /* implements List<E>, RandomAccess */{
+		// Thread Safe - Synchronized Methods
+		// implements RandomAccess, a marker interface, meaning it support fast
+		// almost constant time - access
+}
+
+Vector has the same operations as an ArrayList. However, all methods in Vector 
+are synchronized. So, we can use Vector if we share a list between two threads 
+and we would want to them synchronized.
