@@ -1,0 +1,45 @@
+Go to Sprint Initionalizer ==>
+
+Add -->  Cloud Bootstrap
+    -->  Eureka Discovery Client   Dipendencies
+    
+Go to
+      In Pox.Xml   ==> Add  --> 
+      
+       <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+    ----------------------------------------------------------------------
+    <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  --------------------------------------------------------------------------
+  <spring-cloud.version>2022.0.3</spring-cloud.version>
+  --------------------------------------------------------------------------
+  
+  In Our Main Class Add Annotation --> @EnableDiscoveryClient  below the @SprintBootApplication
+  
+  
+  ------------------------------------------------------------------------
+  
+  Go To  Application.yml  -->
+  
+  add  -->
+  
+  eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka 
